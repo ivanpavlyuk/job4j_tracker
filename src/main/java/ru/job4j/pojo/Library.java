@@ -20,7 +20,7 @@ public class Library {
         }
         for (int index = 0; index < list.length; index++) {
             book = list[index];
-            if (book.getName().equals("Clean code")) {
+            if  ("Clean code".equals(book.getName())) {
                 System.out.println(book.getName() + " - " + book.getPages() + " pages");
             }
         }
