@@ -37,6 +37,15 @@ public class Tracker {
         return isFound;
     }
 
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        boolean isFound = index >= 0;
+        System.arraycopy(items, index + 1, items, index, size - index - 1);
+        items[size - 1] = null;
+        size--;
+        return isFound;
+    }
+
     public Item[] findAll() {
         return Arrays.copyOf(items, size);
         }
