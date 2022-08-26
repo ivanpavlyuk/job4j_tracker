@@ -31,19 +31,23 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        boolean isFound = index >= 0;
-        items[index] = item;
-        items[index].setId(id);
-        return isFound;
+        boolean rsl = index != -1;
+        if (rsl) {
+            items[index] = item;
+            items[index].setId(id);
+        }
+        return rsl;
     }
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        boolean isFound = index >= 0;
-        System.arraycopy(items, index + 1, items, index, size - index - 1);
-        items[size - 1] = null;
-        size--;
-        return isFound;
+        boolean rsl = index != -1;
+        if (rsl) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
+        }
+        return rsl;
     }
 
     public Item[] findAll() {
