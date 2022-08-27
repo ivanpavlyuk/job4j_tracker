@@ -14,10 +14,10 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             if (matches > count || matches < 1 || matches > 3) {
                 System.out.println("Вы ввели неверное число");
-                continue;
+            } else {
+                turn = !turn;
+                count -= matches;
             }
-            turn = !turn;
-            count -= matches;
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
