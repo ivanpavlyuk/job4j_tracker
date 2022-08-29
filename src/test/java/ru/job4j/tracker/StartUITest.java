@@ -152,19 +152,19 @@ public class StartUITest {
 
     @Test
     public void  whenFindByIdItemTestOutputIsSuccessfully() {
-        Output out = new StubOutput();
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
-                new FindByIdAction(out),
-                new ExitAction(out)
+                new FindByIdAction(output),
+                new ExitAction(output)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
-        assertThat(out.toString()).isEqualTo(
+        assertThat(output.toString()).isEqualTo(
                 "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
