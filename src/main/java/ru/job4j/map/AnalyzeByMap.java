@@ -64,10 +64,7 @@ public class AnalyzeByMap {
         List<Label> list = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (!map.containsKey(subject.name())) {
-                    map.put(subject.name(), 0);
-                }
-                map.put(subject.name(), map.get(subject.name()) + subject.score());
+                map.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
         for (String key : map.keySet()) {
